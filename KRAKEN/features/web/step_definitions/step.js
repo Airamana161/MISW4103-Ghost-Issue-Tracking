@@ -138,7 +138,8 @@ When('I click on search', async function(){
 });
 
 When('I enter post name {kraken-string}', async function (value) {
-    let element = await this.driver.$('body.ember-application > div.epm-modal-container > div.epm-modal.fullscreen-modal-action fullscreen-modal-wide > div.modal-content > div.gh-nav-search-modal > div.gh-nav-search-input > div.ember-basic-dropdown.ember-power-select-search > div.ember-view.ember-basic-dropdown-trigger.ember-basic-dropdown-trigger--in-place.ember-basic-dropdown-trigger--left.ember-basic-dropdown-trigger--below.ember-power-select-trigger > input');
+    let element = await this.driver.$('body.ember-application.epm-scrolling-disabled > div.epm-modal-container > div.epm-modal.fullscreen-modal-action.fullscreen-modal-wide > div.modal-content > div.gh-nav-search-modal > div.gh-nav-search-input > div.ember-basic-dropdown.ember-power-select-search > div.ember-view.ember-basic-dropdown-trigger.ember-basic-dropdown-trigger--in-place.ember-power-select-trigger > input');
+    //return await element.click();
     return await element.setValue(value);
 });
 

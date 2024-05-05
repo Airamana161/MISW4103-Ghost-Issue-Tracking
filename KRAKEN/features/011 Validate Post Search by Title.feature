@@ -11,4 +11,5 @@ Scenario: Crear miembro con nombre y correo ya existentes
   And I click on sign in
   And I wait for 5 seconds
   And I click on search
+  And I wait for 1 seconds
   And I enter post name "<POSTSEARCH>"
