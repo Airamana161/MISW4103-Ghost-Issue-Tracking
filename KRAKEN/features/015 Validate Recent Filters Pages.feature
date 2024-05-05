@@ -10,4 +10,5 @@ Scenario: Crear miembro con nombre y correo ya existentes
   And I wait for 1 seconds
   And I click on sign in
   And I wait for 5 seconds
-  And I click on Drafts
+  And I click on pages
+  And I click on SortBy

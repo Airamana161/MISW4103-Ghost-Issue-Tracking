@@ -148,6 +148,11 @@ When('I enter post name {kraken-string}', async function (value) {
     return await element.setValue(value);
 });
 
+When('I click on SortBy', async function(){
+    let element = await this.driver.$('div.gh-contentfilter-menu.gh-contentfilter-sort');
+    return await element.click();
+});
+
 Then('I should see the post coming soon', async function () {
     let element = await this.driver.$('ul.ember-power-select-options > li.ember-power-select-group > ul.ember-power-select-options > li.ember-power-select-option');
     return await element.click();
