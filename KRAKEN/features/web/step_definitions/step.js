@@ -143,6 +143,11 @@ When('I enter post name {kraken-string}', async function (value) {
     return await element.setValue(value);
 });
 
+Then('I should see the post coming soon', async function () {
+    let element = await this.driver.$('');
+    return await element;
+});
+
 Then('I should see the all authors option', async function () {
     let element = await this.driver.$('#ember-basic-dropdown-wormhole > div > ul > li:nth-child(1)');
     return await element;
