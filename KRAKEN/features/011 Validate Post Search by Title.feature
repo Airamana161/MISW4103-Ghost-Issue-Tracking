@@ -1,4 +1,4 @@
-Feature: Crear miembro 11
+Feature: Validate Post Search by Title
 
 @user1 @web
 Scenario: Crear miembro con nombre y correo ya existentes
