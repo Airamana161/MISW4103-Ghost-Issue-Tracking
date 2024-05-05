@@ -132,6 +132,12 @@ When('I click on save member', async function () {
     return await element.click();
 });
 
+When('I click on search', async function(){
+    let element = await this.driver.$('body.ember-application > div.gh-app > div.gh-viewport > nav.gh-nav > div.flex.flex-column.h-100 > header.gh-nav-menu > div.gh-nav-menu-search > button.gh-nav-btn-search')
+    return await element.click();
+
+});
+
 
 Then('I should see the all authors option', async function () {
     let element = await this.driver.$('#ember-basic-dropdown-wormhole > div > ul > li:nth-child(1)');
