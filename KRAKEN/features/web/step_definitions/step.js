@@ -144,8 +144,8 @@ When('I enter post name {kraken-string}', async function (value) {
 });
 
 Then('I should see the post coming soon', async function () {
-    let element = await this.driver.$('ul#ember-power-select-options-ember707.ember-power-select-options > li.ember-power-select-group > ul.ember-power-select-options > li.ember-power-select-option');
-    return await element;
+    let element = await this.driver.$('ul.ember-power-select-options > li.ember-power-select-group > ul.ember-power-select-options > li.ember-power-select-option');
+    return await element.click();
 });
 
 Then('I should see the all authors option', async function () {
