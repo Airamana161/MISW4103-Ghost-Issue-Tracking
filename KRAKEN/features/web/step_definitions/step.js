@@ -138,7 +138,7 @@ When('I click on search', async function(){
 });
 
 When('I click on Drafts', async function(){
-    let element = await this.driver.$('#ember735.active.ember-view ')
+    let element = await this.driver.$('body.ember-application > div.gh-app > div.gh-viewport > nav.gh-nav > div.flex.flex-column.h-100 > section.gh-nav-body > div.gh-nav-top > ul:nth-child(2) > li:nth-child(1) > div.liquid-container.ember-view > div.liquid-child.ember-view > ul.gh-nav-view-list > li:nth-child(1)');
     return await element.click();
 });
 
