@@ -11,5 +11,6 @@ Scenario: Crear miembro con nombre y correo ya existentes
   And I click on sign in
   And I wait for 10 seconds
   And I click on pages
-  And I click on State
-  Then I select Published Pages
+  And I click on SortBy
+  Then I SortBy Recently updated
+  Then I select first post
