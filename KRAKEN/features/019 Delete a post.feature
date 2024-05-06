@@ -14,3 +14,5 @@ Scenario: Crear miembro con nombre y correo ya existentes
   And I click on SortBy
   Then I SortBy Recently updated
   Then I select first post
+  Then I delete the post
+  Then I confirm delete the post

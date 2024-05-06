@@ -181,8 +181,17 @@ When('I click on State', async function(){
     return await element.click();
 });
 
+Then('I confirm delete the post', async function () {
+    let element = await this.driver.$('button.gh-revert-to-draft');
+    return await element.click();
+});
+Then('I delete the post', async function () {
+    let element = await this.driver.$('button.gh-btn.gh-btn-editor.darkgrey.gh-unpublish-trigger');
+    return await element.click();
+});
+
 Then('I select first post', async function () {
-    let element = await this.driver.$('li.gh-list-row.gh-posts-list-item ');
+    let element = await this.driver.$('a.ember-view.permalink.gh-list-data.gh-post-list-title');
     return await element.click();
 });
 
