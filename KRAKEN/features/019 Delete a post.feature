@@ -11,8 +11,8 @@ Scenario: Crear miembro con nombre y correo ya existentes
   And I click on sign in
   And I wait for 10 seconds
   And I click on pages
-  And I click on SortBy
-  Then I SortBy Recently updated
+  And I click on State
+  Then I select Published Pages
   Then I select first post
   Then I delete the post
   Then I confirm delete the post
