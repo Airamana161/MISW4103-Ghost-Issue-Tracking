@@ -171,6 +171,10 @@ When('I click on NewPost', async function(){
     return await element.click();
 });
 
+Then('I SortBy Recently updated', async function () {
+    let element = await this.driver.$('ul.ember-power-select-options > li:nth-child(3) ');
+    return await element.click();
+});
 Then('I publish post', async function () {
     let element = await this.driver.$('button.gh-btn.gh-btn-editor.darkgrey.gh-publish-trigger');
     return await element.click();

@@ -10,11 +10,6 @@ Scenario: Crear miembro con nombre y correo ya existentes
   And I wait for 1 seconds
   And I click on sign in
   And I wait for 10 seconds
-  And I click on NewPost
-  And I write post title "<POSTNAME>"
-  And I wait for 2 seconds
-  And I write post body "<POSTNAME>"
-  And I wait for 2 seconds
-  Then I publish post
-  Then I click continue
-  Then I click PublishPost
+  And I click on pages
+  And I click on SortBy
+  Then I SortBy Recently updated
