@@ -151,7 +151,9 @@ When('I enter post name {kraken-string}', async function (value) {
 When('I write post title {kraken-string}', async function (value) {
     let element = await this.driver.$('textarea.gh-editor-title.ember-text-area.gh-input.ember-view');
     //return await element.click();
-    return await element.setValue(value);
+    await element.setValue(value);
+    element = await this.driver.$('div.koenig-editor__editor-wrapper');
+    return await element.click();
 });
 When('I write post body {kraken-string}', async function (value) {
     let element = await this.driver.$('div.koenig-editor__editor-wrapper');
