@@ -149,7 +149,7 @@ When('I enter post name {kraken-string}', async function (value) {
 });
 
 When('I write post title {kraken-string}', async function (value) {
-    let element = await this.driver.$('textarea#ember2466.gh-editor-title ember-text-area.gh-input ember-view');
+    let element = await this.driver.$('textarea.gh-editor-title.ember-text-area.gh-input.ember-view');
     //return await element.click();
     return await element.setValue(value);
 });
@@ -160,7 +160,12 @@ When('I click on SortBy', async function(){
 });
 
 When('I click on NewPost', async function(){
-    let element = await this.driver.$('a#ember2002.ember-view.gh-secondary-action.gh-nav-new-post');
+    let element = await this.driver.$('a.ember-view.gh-secondary-action.gh-nav-new-post');
+    return await element.click();
+});
+
+Then('I publish post', async function () {
+    let element = await this.driver.$('button.gh-btn.gh-btn-editor.darkgrey.gh-publish-trigger');
     return await element.click();
 });
 

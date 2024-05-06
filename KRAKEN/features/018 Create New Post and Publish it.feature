@@ -12,3 +12,4 @@ Scenario: Crear miembro con nombre y correo ya existentes
   And I wait for 5 seconds
   And I click on NewPost
   And I write post title "<POSTNAME>"
+  Then I publish post
