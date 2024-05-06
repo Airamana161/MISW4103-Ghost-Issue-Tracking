@@ -175,6 +175,11 @@ Then('I publish post', async function () {
     let element = await this.driver.$('button.gh-btn.gh-btn-editor.darkgrey.gh-publish-trigger');
     return await element.click();
 });
+
+Then('I click PublishPost', async function () {
+    let element = await this.driver.$('button.gh-btn.gh-btn-large.gh-btn-pulse.ember-view');
+    return await element.click();
+});
 Then('I click continue', async function () {
     let element = await this.driver.$('button.gh-btn.gh-btn-black.gh-btn-large');
     return await element.click();
