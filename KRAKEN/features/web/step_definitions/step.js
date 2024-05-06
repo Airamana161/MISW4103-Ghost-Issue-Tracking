@@ -153,6 +153,11 @@ When('I write post title {kraken-string}', async function (value) {
     //return await element.click();
     return await element.setValue(value);
 });
+When('I write post body {kraken-string}', async function (value) {
+    let element = await this.driver.$('div.koenig-editor__editor-wrapper');
+    await element.click();
+    return await element.setValue(value);
+});
 
 When('I click on SortBy', async function(){
     let element = await this.driver.$('div.gh-contentfilter-menu.gh-contentfilter-sort');
@@ -166,6 +171,10 @@ When('I click on NewPost', async function(){
 
 Then('I publish post', async function () {
     let element = await this.driver.$('button.gh-btn.gh-btn-editor.darkgrey.gh-publish-trigger');
+    return await element.click();
+});
+Then('I click continue', async function () {
+    let element = await this.driver.$('button.gh-btn.gh-btn-black.gh-btn-large');
     return await element.click();
 });
 
