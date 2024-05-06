@@ -182,7 +182,7 @@ When('I click on State', async function(){
 });
 
 Then('I select first post', async function () {
-    let element = await this.driver.$('ol.posts-list gh-list > li:nth-child(2) > a.ember-view.permalink.gh-list-data.gh-post-list-title ');
+    let element = await this.driver.$('li.gh-list-row.gh-posts-list-item ');
     return await element.click();
 });
 
