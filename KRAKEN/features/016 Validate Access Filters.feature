@@ -11,5 +11,5 @@ Scenario: Crear miembro con nombre y correo ya existentes
   And I click on sign in
   And I wait for 10 seconds
   And I click on pages
-  And I click on access
+  And I click on Access
   Then I select public
