@@ -4,9 +4,9 @@ const fs = require('fs');
 var step = 1
 
 AfterStep(async function () {
-    if (step = 1) {
+    if (step === 1) {
         const rutaCarpeta = './reports/'+this.testScenarioId+'/PantallazosGhost';
-        fs.mkdir(rutaCarpeta, { recursive: true }, (error) => {
+        fs.promises.mkdir(rutaCarpeta, { recursive: true }, (error) => {
             if (error) {
                 console.error('Error al crear la carpeta:', error);
             } else {
