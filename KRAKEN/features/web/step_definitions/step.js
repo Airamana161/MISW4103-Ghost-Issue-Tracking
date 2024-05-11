@@ -1,26 +1,11 @@
-const { Given, When, Then, AfterStep } = require('@cucumber/cucumber');
-
+const { Given, When, Then, Before, AfterStep, After, setWorldConstructor } = require('@cucumber/cucumber');
+const compareImages = require("resemblejs/compareImages")
+const config = require("../../../config.json");
 const fs = require('fs');
+const {options } = config;
 var step = 1
 
-AfterStep(async function () {
-    if (step === 1) {
-        const rutaCarpeta = './reports/'+this.testScenarioId+'/PantallazosGhost';
-        fs.promises.mkdir(rutaCarpeta, { recursive: true }, (error) => {
-            if (error) {
-                console.error('Error al crear la carpeta:', error);
-            } else {
-                console.log('Carpeta creada exitosamente');
-            }
-    });        
-    }
 
-    let screenshot = await this.driver.saveScreenshot(
-        `./reports/${this.testScenarioId}/PantallazosGhost/${step}.png`
-    );
-    step ++
-    this.attach(screenshot, 'image/png')
-});
 
 When('I enter my email {kraken-string}', async function (value) {
     let element = await this.driver.$('#login.gh-signin > div > span.gh-input-icon.gh-icon-mail > input');
@@ -193,6 +178,11 @@ When('I click on NewPost', async function(){
     return await element.click();
 });
 
+When('I click on NewPost old', async function(){
+    let element = await this.driver.$('a.gh-secondary-action.gh-nav-new-post.ember-view');
+    return await element.click();
+});
+
 When('I click on Access', async function(){
     let element = await this.driver.$('div.gh-contentfilter-menu.gh-contentfilter-visibility');
     return await element.click();
@@ -243,8 +233,18 @@ Then('I publish post', async function () {
     return await element.click();
 });
 
+Then('I publish post old', async function () {
+    let element = await this.driver.$('div.ember-view.ember-basic-dropdown-trigger.gh-btn.gh-btn-outline.gh-publishmenu-trigger');
+    return await element.click();
+});
+
 Then('I click PublishPost', async function () {
     let element = await this.driver.$('button.gh-btn.gh-btn-large.gh-btn-pulse.ember-view');
+    return await element.click();
+});
+
+Then('I click Publish old', async function () {
+    let element = await this.driver.$('button.gh-btn.gh-btn-blue.gh-publishmenu-button.gh-btn-icon ember-view');
     return await element.click();
 });
 Then('I click continue', async function () {
@@ -344,4 +344,43 @@ Then('I should get an error message that specifies that the member already exist
 });
 
 
+
+
+// ---------------------------------- STEPS FOR GHOST V3.42 VERSION -------------------------------------------------------
+
+
+When('I click on tags on the old version', async function () {
+    let element = await this.driver.$('body > div.gh-app.ember-view > div.gh-viewport > nav > section.gh-nav-body > div.gh-nav-top > ul.gh-nav-list.gh-nav-manage > li:nth-child(4) > a');
+    return await element.click();
+});
+
+When('I click on new tag on the old version', async function () {
+    let element = await this.driver.$('body > div.gh-app.ember-view > div.gh-viewport > main.gh-main > section.gh-canvas.tags-view > header.gh-canvas-header.tags-header > section.view-actions > a');
+    return await element.click();
+});
+
+When('I click on save tag on the old version', async function () {
+    let element = await this.driver.$('body > div.gh-app.ember-view > div.gh-viewport > main.gh-main > section.gh-canvas > form.mb15 > header.gh-canvas-header > section.view-actions > button.gh-btn.gh-btn-blue.gh-btn-icon.ember-view');
+    return await element.click();
+});
+
+When('I click on members on the old version', async function () {
+    let element = await this.driver.$('body.ember-application > div.gh-app > div.gh-viewport > nav.gh-nav > div.flex.flex-column.h-100 > section.gh-nav-body > div.gh-nav-top > ul:nth-child(2) > li:nth-child(4)');
+    return await element.click();
+});
+
+When('I click on published on the old version', async function () {
+    let element = await this.driver.$('body.ember-application > div.gh-app.ember-view > div.gh-viewport > nav > section.gh-nav-body > div.gh-nav-top > ul:nth-child(2) > li:nth-child(2) > div > div > ul.gh-nav-view-list > li:nth-child(3) > a.ember-view');
+    return await element.click();
+});
+
+When('I click on order dropdown on the old version', async function () {
+    let element = await this.driver.$('body > div.gh-app.ember-view > div.gh-viewport > main.gh-main > section.gh-canvas > header.gh-canvas-header.post-header > section.view-actions > div.gh-contentfilter > div.gh-contentfilter-menu.gh-contentfilter-sort > div.ember-view.ember-basic-dropdown-trigger.ember-power-select-trigger.gh-contentfilter-menu-trigger');
+    return await element.click();
+});
+
+Then('I should see the created tag on the old version', async function () {
+    let element = await this.driver.$('body > div.gh-app.ember-view > div.gh-viewport > nav > section.gh-nav-body > div.gh-nav-top > ul.gh-nav-list.gh-nav-manage > li:nth-child(4) > a');
+    return await element.click();
+});
 
